@@ -60,12 +60,121 @@ body {
     color: var(--color-principal);
 }
 
+/* ===== SECCIÓN PRINCIPAL ===== */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 20px;
+}
+
+.hero-contenido {
+    text-align: center;
+}
+
+.hero-contenido h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    color: var(--color-texto);
+    margin-bottom: 20px;
+}
+
+.hero-contenido p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.boton-principal {
+    display: inline-block;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-principal:hover {
+    background-color: #607d60;
+}
+
+.hero-imagen img {
+    width: 100%;
+    max-width: 400px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* ===== ACCESOS A LAS SECCIONES ===== */
+
+.secciones {
+    padding: 40px 20px 60px;
+    text-align: center;
+}
+
+.secciones h2 {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.secciones-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    padding: 30px 20px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.tarjeta h3 {
+    color: var(--color-principal);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.tarjeta a {
+    display: inline-block;
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tarjeta a:hover {
+    text-decoration: underline;
+}
+
 /* ==============================
    FOOTER - MOBILE FIRST
 ================================= */
 
 .footer{
-    background-color: var(--color-principal);
+       background-image:
+        linear-gradient(
+            rgba(55, 105, 74, 0.45),
+            rgba(55, 105, 74, 0.70)
+        ),
+        url("../assets/img/footer.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     color: var(--color-blanco);
     padding: 35px 20px 20px;
 }
@@ -119,13 +228,14 @@ body {
 /* Copyright */
 .footer-final {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 30px;
-    padding-top: 18px;
+    margin-top: 5px;
+    padding-top: 5px;
     text-align: center;
 }
 
 .footer-final p {
     font-size: 12px;
+    padding-bottom: 3px;
 }
 
 /*TABLET Y ESCRITORIOS*/
@@ -146,6 +256,46 @@ body {
 
     .menu a {
         font-size: 16px;
+    }
+
+  /*---MAIN---*/
+
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 80px 8%;
+        gap: 50px;
+    }
+
+    .hero-contenido {
+        flex: 1;
+        text-align: left;
+    }
+
+    .hero-contenido h1 {
+        font-size: 42px;
+    }
+
+    .hero-imagen {
+        flex: 1;
+    }
+
+    .hero-imagen img {
+        max-width: 100%;
+        height: 350px;
+    }
+
+    .secciones {
+        padding: 60px 8%;
+    }
+
+    .secciones-contenedor {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .tarjeta {
+        flex: 1;
     }
 
 
