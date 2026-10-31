@@ -1,0 +1,179 @@
+/*colores   generales de la página*/
+:root {
+    --color-principal: #789477;
+    --color-secundario: #E8E3D5;
+    --color-fondo: #F8F6EF;
+    --color-texto: #333333;
+    --color-blanco: #FFFFFF;
+}
+
+
+/*CONFIGURACIÓN GENERAL*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+/*CABECERA - MOBILE-FIRST*/
+
+.cabecera { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    background-color: var(--color-blanco);
+}
+
+/*LOGO*/
+.logo{
+    text-decoration: none;
+    color: var(--color-principal);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+/*MENÚ*/
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.activo {
+    color: var(--color-principal);
+}
+
+/* ==============================
+   FOOTER - MOBILE FIRST
+================================= */
+
+.footer{
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    padding: 35px 20px 20px;
+}
+
+/*CONTENEDOR PRINCIPAL DEL FOOTER*/
+.footer-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/*Información*/
+
+.footer-logo {
+    display: inline-block;
+    color: var(--color-blanco);
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.footer-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 300px;
+}
+/* Redes sociales */
+.footer-redes h3 {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.redes-enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.redes-enlaces a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.redes-enlaces a:hover {
+    opacity: 0.7;
+}
+
+/* Copyright */
+.footer-final {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 30px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+.footer-final p {
+    font-size: 12px;
+}
+
+/*TABLET Y ESCRITORIOS*/
+
+@media(min-width: 768px) {
+
+    /*CABECERA*/
+
+    .cabecera{
+        flex-direction: row;
+         justify-content: space-between;
+         padding: 22px 8% ;
+    }
+
+    .menu {
+        gap: 30px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+
+    /*---FOOTER*/
+
+    .footer {
+        padding: 45px 8% 20px;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-info {
+        max-width: 450px;
+    }
+
+    .footer-redes {
+        text-align: center;
+    }
+
+    .redes-enlaces {
+        justify-content: center;
+    }
+
+}
+
+
