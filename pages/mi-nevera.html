@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TuMenú | Descubre que cocinar</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/mi-nevera.css">
     </head>
 
     <body>
@@ -30,16 +31,55 @@
     </header>  
 
 
-    <main>
+   <!-- Contenido principal -->
+    <main class="pagina-nevera">
+
+        <section class="introduccion-nevera">
+
+            <h1>¿Qué tienes en tu nevera?</h1>
+
+            <p>
+                Añade los ingredientes que tienes en casa
+                y descubre qué puedes cocinar con ellos.
+            </p>
+
+        </section>
 
 
+        <section class="buscador-ingredientes">
 
+            <h2>Añade tus ingredientes</h2>
 
+            <div class="formulario-ingredientes">
 
+                <input
+                    type="text"
+                    id="ingrediente"
+                    placeholder="Ejemplo: tomate, huevo, arroz..."
+                >
 
+                <button id="btn-agregar">
+                    Añadir
+                </button>
 
+            </div>
 
-        
+            <div class="lista-ingredientes">
+
+                <h3>Mis ingredientes</h3>
+
+                <ul id="lista-ingredientes">
+                    <!-- Aquí aparecerán los ingredientes con JavaScript -->
+                </ul>
+
+            </div>
+
+            <button id="btn-buscar">
+                Buscar recetas
+            </button>
+
+        </section>
+
     </main>
 
 

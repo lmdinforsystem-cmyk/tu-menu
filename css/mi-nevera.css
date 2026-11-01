@@ -1,0 +1,135 @@
+/* ===== PRESENTACIÓN ===== */
+
+.pagina-nevera {
+    padding: 40px 20px;
+}
+
+.introduccion-nevera {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.introduccion-nevera h1 {
+    font-size: 30px;
+    color: var(--color-principal);
+    margin-bottom: 15px;
+}
+
+.introduccion-nevera p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ===== BUSCADOR DE INGREDIENTES ===== */
+
+.buscador-ingredientes {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 25px 20px;
+    background-color: var(--color-blanco);
+    border-radius: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.buscador-ingredientes h2 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.formulario-ingredientes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formulario-ingredientes input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.formulario-ingredientes input:focus {
+    border-color: var(--color-principal);
+}
+
+.formulario-ingredientes button,
+#btn-buscar {
+    padding: 14px 20px;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario-ingredientes button:hover,
+#btn-buscar:hover {
+    background-color: #607d60;
+}
+
+/* ===== LISTA DE INGREDIENTES ===== */
+
+.lista-ingredientes {
+    margin-top: 35px;
+}
+
+.lista-ingredientes h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#lista-ingredientes {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 40px;
+}
+
+#lista-ingredientes li {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ===== BOTÓN DE BÚSQUEDA ===== */
+
+#btn-buscar {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* ===== TABLETS Y ORDENADORES ===== */
+
+@media (min-width: 768px) {
+
+    .pagina-nevera {
+        padding: 70px 8%;
+    }
+
+    .introduccion-nevera h1 {
+        font-size: 38px;
+    }
+
+    .formulario-ingredientes {
+        flex-direction: row;
+    }
+
+    .formulario-ingredientes input {
+        flex: 1;
+    }
+
+    .formulario-ingredientes button {
+        min-width: 120px;
+    }
+
+}
