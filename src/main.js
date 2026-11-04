@@ -1,14 +1,18 @@
+
 // 1. IMPORTACIONES
-import { buscarRecetas } from "./services/ApiService.js";
+import { buscarRecetas, buscarDetalleReceta } from "./services/ApiService.js";
+import { Receta } from "./classes/Receta.js";
 
 
 // 2. SELECCIONAR ELEMENTOS DEL HTML
 const inputIngrediente = document.getElementById("ingrediente");
 const botonBuscar = document.getElementById("btn-buscar");
 const listaRecetas = document.getElementById("lista-recetas");
+const detalleReceta = document.getElementById("detalle-receta");
+const contenidoDetalle = document.getElementById("contenido-detalle");
 
 
-// 3. FUNCIÓN PARA MOSTRAR LAS RECETAS
+// 3. FUNCIÓN PARA MOSTRAR LAS RECETAS EN TARJETAS
 function mostrarRecetas(recetas) {
 
     // Limpiar los resultados anteriores
@@ -34,21 +38,80 @@ function mostrarRecetas(recetas) {
         tarjeta.appendChild(imagen);
         tarjeta.appendChild(titulo);
 
+        // Al hacer clic, consultar los detalles de la receta
+        tarjeta.addEventListener("click", async function() {
+
+            try {
+
+                const datos = await buscarDetalleReceta(receta.idMeal);
+                console.log(datos);
+
+                // Crear un objeto de nuestra clase Receta
+                const recetaCompleta = new Receta(datos);
+
+                // Mostrar los detalles en pantalla
+                mostrarDetalleReceta(recetaCompleta);
+
+            } catch (error) {
+                console.error("Error al obtener los detalles:", error);
+            }
+
+        });
+
         // Añadir tarjeta al contenedor de resultados
         listaRecetas.appendChild(tarjeta);
-
     });
-
 }
 
 
-// 4. EVENTO DEL BOTÓN BUSCAR RECETAS
+// 4. FUNCIÓN PARA MOSTRAR LOS DETALLES DE UNA RECETA
+    function mostrarDetalleReceta(receta) {
+
+    // Limpiar los resultados anteriores
+    listaRecetas.innerHTML = "";
+
+    // Recorrer los ingredientes y crear una lista HTML
+    const ingredientesHTML = receta.ingredientes.map(function(ingrediente) {
+        return `<li>${ingrediente.cantidad || ""} ${ingrediente.nombre}</li>`;
+    }).join("");
+
+    // Insertar toda la información en el HTML
+    contenidoDetalle.innerHTML = `
+        <img class="imagen-detalle" src="${receta.imagen}" alt="${receta.nombre}">
+        
+        <h2 class="titulo-detalle">${receta.nombre}</h2>
+
+        <div class="informacion-receta">
+            <p><strong>Categoría: </strong> ${receta.categoria || "No disponible"}</p>
+            <p><strong>Origen: </strong> ${receta.origen || "No disponible"}</p>
+        </div>
+        
+        
+        <div class="ingredientes-receta">
+            <h3>Ingredientes</h3>
+             <ul>${ingredientesHTML}</ul>
+        </div>
+        
+        <div class="preparacion-receta">
+            <h3>Preparación</h3>
+             <p>${receta.instrucciones}</p>
+        </div>
+        
+    `;
+
+    // Mostrar el apartado de detalles
+    detalleReceta.hidden = false;
+
+    // Desplazarse hasta los detalles
+    detalleReceta.scrollIntoView({ behavior: "smooth" });
+}
+
+
+// 5. EVENTO DEL BOTÓN BUSCAR RECETAS
 botonBuscar.addEventListener("click", async function() {
 
-    // Recoger el ingrediente escrito por el usuario
     const ingrediente = inputIngrediente.value.trim();
 
-    // Comprobar que el campo no esté vacío
     if (ingrediente === "") {
         alert("Escribe un ingrediente para buscar recetas");
         return;
@@ -56,24 +119,28 @@ botonBuscar.addEventListener("click", async function() {
 
     try {
 
-        // Consultar la API
         const recetas = await buscarRecetas(ingrediente);
 
-        // Comprobar si hay resultados
         if (!recetas || recetas.length === 0) {
-
             listaRecetas.innerHTML = "<p>No se han encontrado recetas con ese ingrediente.</p>";
+            detalleReceta.hidden = true;
+            contenidoDetalle.innerHTML = "";
             return;
-
         }
 
-        // Mostrar las recetas
+       
+
+        // Ocultar los detalles de una búsqueda anterior
+        detalleReceta.hidden = true;
+        contenidoDetalle.innerHTML = "";
+
+        //Mostrar los nuevos resultados
+
         mostrarRecetas(recetas);
 
     } catch (error) {
 
         console.error("Error al buscar recetas:", error);
-
         listaRecetas.innerHTML = "<p>Ha ocurrido un error al buscar las recetas. Inténtalo de nuevo.</p>";
 
     }
@@ -81,7 +148,7 @@ botonBuscar.addEventListener("click", async function() {
 });
 
 
-// 5. PERMITIR BUSCAR PULSANDO ENTER
+// 6. PERMITIR BUSCAR PULSANDO ENTER
 inputIngrediente.addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {

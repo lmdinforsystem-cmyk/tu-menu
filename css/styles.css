@@ -1,4 +1,12 @@
-/*colores   generales de la página*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ===== COLORES GENERALES DE LA PÁGINA ===== */
+
 :root {
     --color-principal: #2E8B57;
     --color-secundario: #E8E3D5;
@@ -7,23 +15,25 @@
     --color-blanco: #FFFFFF;
 }
 
+/* ===== CONFIGURACIÓN GENERAL ===== */
 
-/*CONFIGURACIÓN GENERAL*/
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: Arial, sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-/*CABECERA - MOBILE-FIRST*/
 
-.cabecera { 
+main{
+    flex: 1;
+}
+
+/* ===== CABECERA - MOBILE FIRST ===== */
+
+.cabecera {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,17 +42,18 @@ body {
     background-color: var(--color-blanco);
 }
 
-/*LOGO*/
-.logo{
+/* LOGO */
+
+.logo {
     text-decoration: none;
     color: var(--color-principal);
     font-size: 27px;
     font-weight: bold;
 }
 
-/*MENÚ*/
+/* MENÚ */
 
-.menu{
+.menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -60,81 +71,150 @@ body {
     color: var(--color-principal);
 }
 
-/* ===== SECCIÓN PRINCIPAL ===== */
+
+/* ===== PRESENTACIÓN PRINCIPAL ===== */
 
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 35px;
     padding: 50px 20px;
 }
 
 .hero-contenido {
     text-align: center;
+    max-width: 550px;
 }
 
+/* Etiqueta superior */
+
+.hero-etiqueta {
+    display: inline-block;
+    color: var(--color-principal);
+    background-color: #e4eee5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* Título principal */
+
 .hero-contenido h1 {
-    font-size: 32px;
+    font-size: 34px;
     line-height: 1.2;
     color: var(--color-texto);
     margin-bottom: 20px;
 }
 
+/* Descripción */
+
 .hero-contenido p {
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    color: var(--color-texto);
 }
+
+/* Botón principal */
 
 .boton-principal {
     display: inline-block;
     background-color: var(--color-principal);
     color: var(--color-blanco);
     text-decoration: none;
-    padding: 13px 25px;
-    border-radius: 25px;
+    padding: 14px 28px;
+    border-radius: 30px;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .boton-principal:hover {
-    background-color: #607d60;
+    background-color: #246b43;
+    transform: translateY(-3px);
+}
+
+/* Imagen principal */
+
+.hero-imagen {
+    width: 100%;
+    max-width: 500px;
 }
 
 .hero-imagen img {
     width: 100%;
-    max-width: 400px;
     height: 280px;
     object-fit: cover;
     border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
 }
 
 /* ===== ACCESOS A LAS SECCIONES ===== */
 
+/* ===== ACCESOS A LAS SECCIONES ===== */
+
 .secciones {
-    padding: 40px 20px 60px;
+    padding: 45px 20px 60px;
     text-align: center;
 }
 
+/* Título */
+
 .secciones h2 {
-    font-size: 25px;
-    margin-bottom: 30px;
+    font-size: 27px;
+    color: var(--color-texto);
+    margin-bottom: 12px;
 }
+
+/* Descripción */
+
+.secciones-descripcion {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* Contenedor de tarjetas */
 
 .secciones-contenedor {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
+
+/* Tarjetas */
 
 .tarjeta {
     background-color: var(--color-blanco);
-    padding: 30px 20px;
+    padding: 30px 25px;
     border-radius: 18px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
+/* Iconos */
+
+.tarjeta-icono {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    background-color: #e8f1e9;
+    border-radius: 50%;
+    color: var(--color-principal);
+    font-size: 25px;
+}
+
+/* Títulos de tarjetas */
 
 .tarjeta h3 {
     color: var(--color-principal);
@@ -142,112 +222,144 @@ body {
     margin-bottom: 15px;
 }
 
+/* Texto de tarjetas */
+
 .tarjeta p {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 20px;
+    color: #555555;
 }
+
+/* Enlaces */
 
 .tarjeta a {
     display: inline-block;
     color: var(--color-principal);
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 .tarjeta a:hover {
+    color: #246b43;
     text-decoration: underline;
+}
+
+/* Efecto al pasar el ratón */
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
 }
 
 /* ==============================
    FOOTER - MOBILE FIRST
 ================================= */
 
-.footer{
-       background-image:
+.footer {
+    background-image:
         linear-gradient(
-            rgba(55, 105, 74, 0.45),
-            rgba(55, 105, 74, 0.70)
+            rgba(55, 105, 74, 0.60),
+            rgba(55, 105, 74, 0.65)
         ),
-        url("../assets/img/footer.png");
+        url("../assets/img/footer2.png");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     color: var(--color-blanco);
-    padding: 35px 20px 20px;
+    padding: 15px 20px 8px;
 }
 
-/*CONTENEDOR PRINCIPAL DEL FOOTER*/
+/* CONTENEDOR PRINCIPAL DEL FOOTER */
+
 .footer-contenido {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    gap: 20px;
 }
 
-/*Información*/
+/* INFORMACIÓN */
 
 .footer-logo {
     display: inline-block;
     color: var(--color-blanco);
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
     text-decoration: none;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .footer-info p {
     font-size: 14px;
-    line-height: 1.6;
+    font-weight: bold;
+    line-height: 1.4;
     max-width: 300px;
 }
-/* Redes sociales */
+
+/* REDES SOCIALES */
+
 .footer-redes h3 {
-    font-size: 17px;
-    margin-bottom: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .redes-enlaces {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
 }
 
 .redes-enlaces a {
     color: var(--color-blanco);
     text-decoration: none;
-    font-size: 14px;
-    transition: opacity 0.3s;
+    font-size: 25px;
+    transition: transform 0.3s ease;;
 }
 
 .redes-enlaces a:hover {
-    opacity: 0.7;
+    transform: scale(1.2);
 }
 
-/* Copyright */
+/* COPYRIGHT */
+
 .footer-final {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 5px;
-    padding-top: 5px;
+    margin-top: 12px;
+    padding-top: 8px;
     text-align: center;
 }
 
 .footer-final p {
-    font-size: 12px;
-    padding-bottom: 3px;
+    color: var(--color-blanco);
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    padding-bottom: 0;
 }
 
-/*TABLET Y ESCRITORIOS*/
+/* TEXTO BLANCO Y SOMBRA */
 
-@media(min-width: 768px) {
+.footer-info p,
+.footer-logo,
+.redes-enlaces a,
+.footer-redes h3 {
+    color: var(--color-blanco);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
 
-    /*CABECERA*/
+/* ===== TABLETS Y ESCRITORIOS ===== */
 
-    .cabecera{
+@media (min-width: 768px) {
+
+    /* CABECERA */
+
+    .cabecera {
         flex-direction: row;
-         justify-content: space-between;
-         padding: 22px 8% ;
+        justify-content: space-between;
+        padding: 22px 8%;
     }
 
     .menu {
@@ -258,72 +370,104 @@ body {
         font-size: 16px;
     }
 
-  /*---MAIN---*/
+    /* MAIN */
 
+   
     .hero {
         flex-direction: row;
         justify-content: space-between;
-        padding: 80px 8%;
-        gap: 50px;
+        align-items: center;
+        padding: 75px 8%;
+        gap: 60px;
     }
 
     .hero-contenido {
         flex: 1;
         text-align: left;
+        max-width: 550px;
     }
 
     .hero-contenido h1 {
-        font-size: 42px;
+        font-size: 46px;
+    }
+
+    .hero-contenido p {
+        font-size: 17px;
     }
 
     .hero-imagen {
         flex: 1;
+        max-width: 520px;
     }
 
     .hero-imagen img {
-        max-width: 100%;
-        height: 350px;
+        height: 380px;
     }
 
+    /* TARJETAS EN ESCRITORIO */
+
     .secciones {
-        padding: 60px 8%;
+        padding: 60px 8% 75px;
+    }
+
+    .secciones h2 {
+        font-size: 32px;
+    }
+
+    .secciones-descripcion {
+        font-size: 16px;
     }
 
     .secciones-contenedor {
         flex-direction: row;
         align-items: stretch;
+        gap: 25px;
     }
 
     .tarjeta {
         flex: 1;
+        padding: 35px 25px;
     }
 
-
-    /*---FOOTER*/
+    /* FOOTER */
 
     .footer {
-        padding: 45px 8% 20px;
+        padding: 20px 8% 10px;
     }
 
     .footer-contenido {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
-        gap: 25px;
+        text-align: left;
+        gap: 20px;
     }
 
     .footer-info {
         max-width: 450px;
+        text-align: left;
     }
 
-    .footer-redes {
-        text-align: center;
+    .footer-info p {
+        margin: 0;
     }
+
 
     .redes-enlaces {
-        justify-content: center;
+        justify-content: flex-end;
+        justify-content: flex-end;
+        align-items: center;
+        gap:20px;
     }
 
+    .redes-enlaces a {
+        font-size: 25px;
+    }
+
+    .footer-final {
+        margin-top: 10px;
+        padding-top: 8px;
+        text-align: center;
+    }
 }
-
-

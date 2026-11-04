@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TuMenú | Descubre que cocinar</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
-    
-    <!--Cabecera de la pagina-->    
+    <title>TuMenú | Cocina con lo que tienes</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- CABECERA -->
 
     <header class="cabecera">
-        
+
         <div class="contenedor-logo">
-            <a href="" class="logo">TuMenú</a>
+            <a href="index.html" class="logo">TuMenú</a>
         </div>
 
-        <!--Menu de navegación-->
         <nav class="menu">
             <a href="index.html" class="activo">Inicio</a>
             <a href="pages/mi-nevera.html">Mi nevera</a>
@@ -26,116 +30,194 @@
             <a href="pages/favoritos.html">Favoritos</a>
         </nav>
 
-
-    </header>  
+    </header>
 
 
     <main>
-     <!-- Presentación principal -->
 
-    <section class="hero">
+        <!-- PRESENTACIÓN PRINCIPAL -->
 
-        <div class="hero-contenido">
-            <h1>¿Qué tienes en tu nevera?</h1>
+        <section class="hero">
 
-            <p>
-                Descubre recetas deliciosas con los ingredientes
-                que ya tienes en casa. ¡Aprovecha cada alimento!
+            <div class="hero-contenido">
+
+                <span class="hero-etiqueta">
+                    COCINA FÁCIL · APROVECHA · DISFRUTA
+                </span>
+
+                <h1>
+                    Convierte lo que tienes en recetas deliciosas
+                </h1>
+
+                <p>
+                    Abre tu nevera, elige un ingrediente y descubre
+                    nuevas ideas para cocinar. Aprovecha tus alimentos
+                    y encuentra inspiración para cada día.
+                </p>
+
+                <a href="pages/mi-nevera.html" class="boton-principal">
+                    Encuentra tu receta
+                </a>
+
+            </div>
+
+            <div class="hero-imagen">
+
+                <img
+                    src="assets/img/comida1.png"
+                    alt="Plato de comida saludable con ingredientes frescos"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ACCESOS PRINCIPALES -->
+
+        <section class="secciones">
+
+            <h2>¿Qué te apetece hacer hoy?</h2>
+
+            <p class="secciones-descripcion">
+                Tu cocina está llena de posibilidades. Elige por dónde empezar.
             </p>
 
-            <a href="pages/mi-nevera.html" class="boton-principal">
-                Empezar ahora
-            </a>
-        </div>
+            <div class="secciones-contenedor">
 
-        <div class="hero-imagen">
-            <img src="assets/img/hero-recetas.jpg" alt="Plato de comida saludable">
-        </div>
-        
-    </section>
+                <!-- MI NEVERA -->
 
+                <article class="tarjeta">
 
-    <!-- Accesos principales -->
-    <section class="secciones">
-        <h2>¿Qué te apetece hacer hoy?</h2>
+                    <div class="tarjeta-icono">
+                        <i class="fa-solid fa-carrot"></i>
+                    </div>
 
-        <div class="secciones-contenedor">
+                    <h3>Mi nevera</h3>
 
+                    <p>
+                        Introduce un ingrediente que tengas en casa
+                        y descubre qué puedes cocinar con él.
+                    </p>
 
-            <article class="tarjeta">
-                <h3>Mi nevera</h3>
-                <p>
-                    Añade los ingredientes que tienes en casa
-                    y encuentra recetas para aprovecharlos.
-                </p>
-                <a href="pages/mi-nevera.html">Ver mi nevera</a>
-            </article>
+                    <a href="pages/mi-nevera.html">
+                        Buscar recetas →
+                    </a>
+
+                </article>
 
 
-            <article class="tarjeta">
-                <h3>Descubrir recetas</h3>
-                <p>
-                    Explora nuevas recetas y encuentra inspiración
-                    para tus próximas comidas.
-                </p>
-                <a href="pages/recetas.html">Ver recetas</a>
-            </article>
+                <!-- RECETAS -->
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+
+                    <h3>Descubre recetas</h3>
+
+                    <p>
+                        Explora diferentes propuestas y encuentra
+                        nuevas ideas para tus comidas.
+                    </p>
+
+                    <a href="pages/recetas.html">
+                        Explorar recetas →
+                    </a>
+
+                </article>
 
 
-            <article class="tarjeta">
-                <h3>Mis favoritos</h3>
-                <p>
-                    Guarda las recetas que más te gustan
-                    para consultarlas cuando quieras.
-                </p>
-                <a href="pages/favoritos.html">Ver favoritos</a>
-            </article>
+                <!-- FAVORITOS -->
 
-        </div>
-    </section>   
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <h3>Mis favoritos</h3>
+
+                    <p>
+                        Guarda las recetas que más te gustan
+                        y vuelve a consultarlas cuando quieras.
+                    </p>
+
+                    <a href="pages/favoritos.html">
+                        Ver favoritos →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
+    <!-- FOOTER -->
 
-</main>
-
-
-<!--PIE DE LA PÁGINA-->
     <footer class="footer">
-       
+
         <div class="footer-contenido">
-        <!--información de la página-->
 
             <section class="footer-info">
+
                 <a href="index.html" class="footer-logo">TuMenú</a>
 
                 <p>
-                    Decubre nuevas recetas, aprovecha tus ingredientes y disfrtuta
-                    cocinando cada día.
+                    Descubre nuevas recetas, aprovecha tus ingredientes
+                    y disfruta cocinando cada día.
                 </p>
-        
-
-                <!--REDES SOCIALES-->
-                <div class="redes-enlaces">
-                    <a href="#" aria-level="Instagram">Instagram</a>
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="Tik-Tok">Tik-Tok</a>            
-                </div>
 
             </section>
-       
+
+            <!-- REDES SOCIALES -->
+
+            <div class="redes-enlaces">
+
+                <a href="https://www.instagram.com/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a href="https://www.facebook.com/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook"></i>
+
+                </a>
+
+                <a href="https://www.tiktok.com/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="TikTok">
+
+                    <i class="fa-brands fa-tiktok"></i>
+
+                </a>
+
+            </div>
+
         </div>
 
+        <!-- COPYRIGHT -->
 
+        <div class="footer-final">
+
+            <p>© 2026 TuMenú. Todos los derechos reservados.</p>
+
+        </div>
 
     </footer>
 
-    <!-- Copyright -->
-    <div class="footer-final">
-
-        <p>© 2026 TuMenú. Todos los derechos reservados.</p>
-
-    </div>
-
-    </body>
-
+</body>
 </html>

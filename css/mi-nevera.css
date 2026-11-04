@@ -1,15 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 /* ===== CONTENIDO PRINCIPAL ===== */
 
 .pagina-nevera {
-    padding: 40px 20px;
-    min-height: 60vh;
+    padding: 25px 20px;
 }
 
 /* ===== PRESENTACIÓN ===== */
 
 .introduccion-nevera {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .introduccion-nevera h1 {
@@ -88,13 +94,13 @@
 
 .resultados-recetas {
     max-width: 1100px;
-    margin: 45px auto 0;
+    margin: 25px auto 0;
 }
 
 .resultados-recetas h2 {
     font-size: 24px;
     color: var(--color-principal);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -126,12 +132,65 @@
     color: var(--color-texto);
     font-size: 18px;
 }
+
+/* ===== DETALLE DE RECETAS ===== */
+
+.detalle-receta {
+    width: 100%;
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: var(--color-blanco);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.imagen-detalle {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.titulo-detalle {
+    margin: 20px 0;
+    font-size: 24px;
+    color: var(--color-principal);
+}
+
+.informacion-receta {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.ingredientes-receta {
+    margin-bottom: 25px;
+}
+
+.ingredientes-receta ul {
+    padding-left: 25px;
+    line-height: 2;
+}
+
+.preparacion-receta {
+    line-height: 1.8;
+}
+
+.detalle-receta h3 {
+    margin-bottom: 12px;
+    color: var(--color-principal);
+}
+
 /* ===== TABLETS Y ORDENADORES ===== */
 
 @media (min-width: 768px) {
 
     .pagina-nevera {
-        padding: 70px 8%;
+        padding: 40px 8%;
+    }
+
+    .introduccion-nevera {
+        margin-bottom: 25px;
     }
 
     .introduccion-nevera h1 {
@@ -141,6 +200,7 @@
     .introduccion-nevera p {
         font-size: 18px;
     }
+
     .formulario-ingredientes {
         flex-direction: row;
     }
@@ -158,6 +218,22 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .detalle-receta {
+        padding: 35px;
+    }
+
+    .imagen-detalle {
+        height: 380px;
+    }
+
+    .titulo-detalle {
+        font-size: 32px;
+    }
+
+    .informacion-receta,
+    .preparacion-receta {
+        font-size: 16px;
+    }
 }
 
 /* ===== PANTALLAS GRANDES ===== */
