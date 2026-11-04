@@ -1,65 +1,91 @@
+// 1. IMPORTACIONES
+import { buscarRecetas } from "./services/ApiService.js";
 
-// Ingredientes que tenemos en casa
-const ingredientes = ["Tomate", "Huevo", "Patata"];
 
+// 2. SELECCIONAR ELEMENTOS DEL HTML
 const inputIngrediente = document.getElementById("ingrediente");
-const botonAgregar = document.getElementById("btn-agregar");
-const listaIngredientes = document.getElementById("lista-ingredientes");
+const botonBuscar = document.getElementById("btn-buscar");
+const listaRecetas = document.getElementById("lista-recetas");
 
-// Función para mostrar los elementos
-function mostrarIngresdientes() {
 
-    listaIngredientes.innerHTML = "";
+// 3. FUNCIÓN PARA MOSTRAR LAS RECETAS
+function mostrarRecetas(recetas) {
 
-    ingredientes.forEach(function(ingrediente) {
+    // Limpiar los resultados anteriores
+    listaRecetas.innerHTML = "";
 
-        const elementoLista = document.createElement("li");
+    // Recorrer las recetas recibidas de la API
+    recetas.forEach(function(receta) {
 
-        elementoLista.textContent = ingrediente;
+        // Crear tarjeta
+        const tarjeta = document.createElement("article");
+        tarjeta.classList.add("tarjeta-receta");
 
-        // Crear botón eliminar
-        const botonEliminar = document.createElement("button");
-        botonEliminar.textContent = "Eliminar";
+        // Crear imagen
+        const imagen = document.createElement("img");
+        imagen.src = receta.strMealThumb;
+        imagen.alt = receta.strMeal;
 
-        // Evento para eliminar el ingrediente
-        botonEliminar.addEventListener("click", function() {
+        // Crear título
+        const titulo = document.createElement("h3");
+        titulo.textContent = receta.strMeal;
 
-            const posicion = ingredientes.indexOf(ingrediente);
+        // Añadir imagen y título a la tarjeta
+        tarjeta.appendChild(imagen);
+        tarjeta.appendChild(titulo);
 
-            ingredientes.splice(posicion, 1);
+        // Añadir tarjeta al contenedor de resultados
+        listaRecetas.appendChild(tarjeta);
 
-            mostrarIngresdientes();
-
-        });
-
-        // Añadir el botón eliminar
-        elementoLista.appendChild(botonEliminar);
-
-        listaIngredientes.appendChild(elementoLista);
     });
+
 }
 
-// Mostrar ingredientes al cargar la página
-mostrarIngresdientes();
 
-// Evento del botón Añadir
-botonAgregar.addEventListener("click", function(){
+// 4. EVENTO DEL BOTÓN BUSCAR RECETAS
+botonBuscar.addEventListener("click", async function() {
 
-    const nuevoIngrediente = inputIngrediente.value.trim();
+    // Recoger el ingrediente escrito por el usuario
+    const ingrediente = inputIngrediente.value.trim();
 
-    if (nuevoIngrediente === "") {
-        alert("Escribe un ingrediente");
+    // Comprobar que el campo no esté vacío
+    if (ingrediente === "") {
+        alert("Escribe un ingrediente para buscar recetas");
         return;
     }
 
-    if (ingredientes.includes(nuevoIngrediente)) {
-        alert("Este ingrediente ya está añadido");
-        return;
+    try {
+
+        // Consultar la API
+        const recetas = await buscarRecetas(ingrediente);
+
+        // Comprobar si hay resultados
+        if (!recetas || recetas.length === 0) {
+
+            listaRecetas.innerHTML = "<p>No se han encontrado recetas con ese ingrediente.</p>";
+            return;
+
+        }
+
+        // Mostrar las recetas
+        mostrarRecetas(recetas);
+
+    } catch (error) {
+
+        console.error("Error al buscar recetas:", error);
+
+        listaRecetas.innerHTML = "<p>Ha ocurrido un error al buscar las recetas. Inténtalo de nuevo.</p>";
+
     }
 
-    ingredientes.push(nuevoIngrediente);
+});
 
-    mostrarIngresdientes();
 
-    inputIngrediente.value = "";
+// 5. PERMITIR BUSCAR PULSANDO ENTER
+inputIngrediente.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        botonBuscar.click();
+    }
+
 });

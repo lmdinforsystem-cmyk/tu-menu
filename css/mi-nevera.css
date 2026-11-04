@@ -1,12 +1,15 @@
-/* ===== PRESENTACIÓN ===== */
+/* ===== CONTENIDO PRINCIPAL ===== */
 
 .pagina-nevera {
     padding: 40px 20px;
+    min-height: 60vh;
 }
+
+/* ===== PRESENTACIÓN ===== */
 
 .introduccion-nevera {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .introduccion-nevera h1 {
@@ -18,9 +21,12 @@
 .introduccion-nevera p {
     font-size: 15px;
     line-height: 1.6;
+    color: var(--color-texto);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* ===== BUSCADOR DE INGREDIENTES ===== */
+/* ===== BUSCADOR DE RECETAS ===== */
 
 .buscador-ingredientes {
     max-width: 650px;
@@ -35,7 +41,10 @@
     font-size: 22px;
     text-align: center;
     margin-bottom: 25px;
+    color: var(--color-texto);
 }
+
+/* Formulario */
 
 .formulario-ingredientes {
     display: flex;
@@ -56,8 +65,10 @@
     border-color: var(--color-principal);
 }
 
-.formulario-ingredientes button,
+/* Botón de búsqueda */
+
 #btn-buscar {
+    width: 100%;
     padding: 14px 20px;
     background-color: var(--color-principal);
     color: var(--color-blanco);
@@ -66,48 +77,55 @@
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.formulario-ingredientes button:hover,
 #btn-buscar:hover {
     background-color: #607d60;
 }
 
-/* ===== LISTA DE INGREDIENTES ===== */
+/* ===== RESULTADOS DE RECETAS ===== */
 
-.lista-ingredientes {
-    margin-top: 35px;
+.resultados-recetas {
+    max-width: 1100px;
+    margin: 45px auto 0;
 }
 
-.lista-ingredientes h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
+.resultados-recetas h2 {
+    font-size: 24px;
+    color: var(--color-principal);
+    margin-bottom: 25px;
+    text-align: center;
 }
 
-#lista-ingredientes {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    min-height: 40px;
+/* Aquí aparecerán las tarjetas de recetas */
+
+#lista-recetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
 }
 
-#lista-ingredientes li {
-    background-color: var(--color-secundario);
-    color: var(--color-texto);
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+/* ===== TARJETAS DE RECETAS ===== */
+
+.tarjeta-receta {
+    background-color: var(--color-blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== BOTÓN DE BÚSQUEDA ===== */
-
-#btn-buscar {
-    display: block;
+.tarjeta-receta img {
     width: 100%;
-    margin-top: 30px;
+    height: 220px;
+    object-fit: cover;
 }
 
+.tarjeta-receta h3 {
+    padding: 15px;
+    color: var(--color-texto);
+    font-size: 18px;
+}
 /* ===== TABLETS Y ORDENADORES ===== */
 
 @media (min-width: 768px) {
@@ -120,6 +138,9 @@
         font-size: 38px;
     }
 
+    .introduccion-nevera p {
+        font-size: 18px;
+    }
     .formulario-ingredientes {
         flex-direction: row;
     }
@@ -128,8 +149,23 @@
         flex: 1;
     }
 
-    .formulario-ingredientes button {
-        min-width: 120px;
+    #btn-buscar {
+        width: auto;
+        min-width: 160px;
+    }
+
+    #lista-recetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* ===== PANTALLAS GRANDES ===== */
+
+@media (min-width: 1024px) {
+
+    #lista-recetas {
+        grid-template-columns: repeat(3, 1fr);
     }
 
 }
