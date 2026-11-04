@@ -2,7 +2,11 @@
 // 1. IMPORTACIONES
 import { buscarRecetas, buscarDetalleReceta } from "./services/ApiService.js";
 import { Receta } from "./classes/Receta.js";
+import { GestorFavoritos } from "./classes/GestorFavorito.js";
 
+//CREAR EL GESTOR DE FAVORITOS
+
+const gestorFavoritos = new GestorFavoritos();
 
 // 2. SELECCIONAR ELEMENTOS DEL HTML
 const inputIngrediente = document.getElementById("ingrediente");
@@ -34,9 +38,35 @@ function mostrarRecetas(recetas) {
         const titulo = document.createElement("h3");
         titulo.textContent = receta.strMeal;
 
+        //CREAMOS EL BOTON FAVORITOS
+        const botonFavorito = document.createElement("button");
+        botonFavorito.textContent = "❤️";
+        botonFavorito.classList.add("boton-favorito");
+
+        //AL PULSAR EL BOTON GUARDAMOS LA RECETA
+        botonFavorito.addEventListener("click", function(event){
+               // Evitamos que se abra el detalle de la receta
+         event.stopPropagation();
+
+        // Guardamos los datos básicos de la receta
+            const recetaFavorita = {
+            id: receta.idMeal,
+            nombre: receta.strMeal,
+            imagen: receta.strMealThumb
+            };
+
+        gestorFavoritos.agregarFavorito(recetaFavorita);
+
+         //CAMBIAMOS EL CORAZON PARA INDICAR QUE SE HA GUARDADP
+        botonFavorito.textContent = "💚";
+
+    });
+
+
         // Añadir imagen y título a la tarjeta
         tarjeta.appendChild(imagen);
         tarjeta.appendChild(titulo);
+        tarjeta.appendChild(botonFavorito);
 
         // Al hacer clic, consultar los detalles de la receta
         tarjeta.addEventListener("click", async function() {

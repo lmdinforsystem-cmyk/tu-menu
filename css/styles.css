@@ -38,17 +38,26 @@ main{
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    padding: 20px;
+    padding: 18px 20px;
     background-color: var(--color-blanco);
+    border-bottom: 1px solid #e5eadf;
 }
 
 /* LOGO */
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
     text-decoration: none;
-    color: var(--color-principal);
-    font-size: 27px;
+    color: #245b3b;
+    font-size: 29px;
     font-weight: bold;
+    letter-spacing: -1px;
+}
+.logo i {
+    color: var(--color-principal);
+    font-size: 25px;
 }
 
 /* MENÚ */
@@ -62,13 +71,24 @@ main{
 
 .menu a {
     text-decoration: none;
-    color: var(--color-texto);
+    color: #385344;
     font-size: 14px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
 
-.menu a:hover,
-.menu a.activo {
+/* Efecto al pasar el ratón */
+
+.menu a:hover {
+    background-color: #e7f0e7;
     color: var(--color-principal);
+}
+
+.menu a.activo:hover {
+    background-color: #246b43;
+    color: var(--color-blanco);
 }
 
 
@@ -152,7 +172,6 @@ main{
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
 }
 
-/* ===== ACCESOS A LAS SECCIONES ===== */
 
 /* ===== ACCESOS A LAS SECCIONES ===== */
 
