@@ -1,0 +1,122 @@
+/* ===== PÁGINA FAVORITOS ===== */
+
+.pagina-favoritos {
+    padding: 35px 20px;
+    min-height: 60vh;
+}
+
+/* ===== PRESENTACIÓN ===== */
+
+.introduccion-favoritos {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.introduccion-favoritos h1 {
+    color: var(--color-principal);
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.introduccion-favoritos p {
+    color: var(--color-texto);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ===== LISTA DE FAVORITOS ===== */
+
+#lista-favoritos {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+/* ===== TARJETAS ===== */
+
+#lista-favoritos .tarjeta-receta {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+#lista-favoritos .tarjeta-receta:hover {
+    transform: translateY(-5px);
+}
+
+#lista-favoritos .tarjeta-receta img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+#lista-favoritos .tarjeta-receta h3 {
+    color: var(--color-texto);
+    font-size: 18px;
+    margin: 18px 12px;
+}
+
+/* ===== BOTÓN ELIMINAR ===== */
+
+#lista-favoritos .tarjeta-receta button {
+    border: none;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#lista-favoritos .tarjeta-receta button:hover {
+    background-color: #246b43;
+}
+
+/* ===== MENSAJE SIN FAVORITOS ===== */
+
+#lista-favoritos > p {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 35px 20px;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    color: var(--color-texto);
+}
+/* ===== COLORES DE LAS TARJETAS ===== */
+
+.tarjeta-nevera {
+    background-color: #C8E6C9;
+}
+
+.tarjeta-recetas {
+    background-color: #F2D7A5;
+}
+
+.tarjeta-favoritos {
+    background-color: #F2C6C6;
+}
+
+/* ===== ESCRITORIO ===== */
+
+@media (min-width: 768px) {
+
+    .pagina-favoritos {
+        padding: 55px 8%;
+    }
+
+    .introduccion-favoritos h1 {
+        font-size: 34px;
+    }
+
+    #lista-favoritos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}

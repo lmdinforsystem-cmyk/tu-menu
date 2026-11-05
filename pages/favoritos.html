@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TuMenú | Descubre que cocinar</title>
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuMenú | Descubre que cocinar</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/favoritos.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+</head>
 
-    <body>
-    
-    <!--Cabecera de la pagina-->    
+<body>
+
+    <!--Cabecera de la pagina-->
 
     <header class="cabecera">
-        
-       <div class="contenedor-logo">
+
+        <div class="contenedor-logo">
             <a href="index.html" class="logo">
                 <i class="fa-solid fa-leaf"></i>
                 TuMenú
@@ -24,34 +27,39 @@
 
         <!--Menu de navegación-->
         <nav class="menu">
-            <a href="index.html" class="activo">Inicio</a>
-            <a href="pages/mi-nevera.html">Mi nevera</a>
-            <a href="pages/recetas.html">Recetas</a>
-            <a href="pages/favoritos.html">Favoritos</a>
+            <a href="../index.html">Inicio</a>
+            <a href="mi-nevera.html">Mi nevera</a>
+            <a href="recetas.html">Recetas</a>
+            <a href="favoritos.html" class="activo">Favoritos</a>
         </nav>
 
 
-    </header>  
-
-
-    <main>
+    </header>
 
 
 
+    <main class="pagina-favoritos">
 
+        <section class="introduccion-favoritos">
+            <h1>Mis recetas favoritas ❤️</h1>
+            <p>Aquí encontrarás todas las recetas que has guardado.</p>
+        </section>
 
+        <section class="resultados-favoritos">
+            <div id="lista-favoritos">
+                <!-- Aquí aparecerán las recetas guardadas -->
+            </div>
+        </section>
 
-
-
-        
     </main>
 
 
-<!--PIE DE LA PÁGINA-->
+
+    <!--PIE DE LA PÁGINA-->
     <footer class="footer">
-       
+
         <div class="footer-contenido">
-        <!--información de la página-->
+            <!--información de la página-->
 
             <section class="footer-info">
                 <a href="index.html" class="footer-logo">TuMenú</a>
@@ -60,30 +68,44 @@
                     Decubre nuevas recetas, aprovecha tus ingredientes y disfrtuta
                     cocinando cada día.
                 </p>
-        
-
-                <!--REDES SOCIALES-->
-                <div class="redes-enlaces">
-                    <a href="#" aria-level="Instagram">Instagram</a>
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="Tik-Tok">Tik-Tok</a>            
-                </div>
 
             </section>
-       
+
+            <!--REDES SOCIALES-->
+
+            <div class="redes-enlaces">
+
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-final">
+
+            <p>© 2026 TuMenú. Todos los derechos reservados.</p>
+
         </div>
 
 
 
     </footer>
 
-    <!-- Copyright -->
-    <div class="footer-final">
 
-        <p>© 2026 TuMenú. Todos los derechos reservados.</p>
 
-    </div>
+</body>
 
-    </body>
+<script type="module" src="../src/favoritos.js"></script>
 
 </html>
