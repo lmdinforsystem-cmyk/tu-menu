@@ -21,3 +21,15 @@ export async function buscarDetalleReceta(id) {
 
     return datos.meals[0];
 }
+
+// Función para buscar recetas por categoría
+export async function buscarRecetasPorCategoria(categoria) {
+
+    const respuesta = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoria}`
+    );
+
+    const datos = await respuesta.json();
+
+    return datos.meals;
+}

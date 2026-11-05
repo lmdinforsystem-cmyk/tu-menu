@@ -181,6 +181,21 @@
     color: var(--color-principal);
 }
 
+/* ===== BOTÓN FAVORITOS ===== */
+
+.boton-favorito {
+    border: none;
+    background-color: #f8f6ef;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.boton-favorito:hover {
+    transform: scale(1.15);
+}
 /* ===== TABLETS Y ORDENADORES ===== */
 
 @media (min-width: 768px) {
